@@ -1,8 +1,5 @@
 name: 2019projects
-channels:
-  - anaconda
-  - conda-forge
-  - pytorch
+
 dependencies:
 - python=3.6.4
 - numpy=1.14.0
