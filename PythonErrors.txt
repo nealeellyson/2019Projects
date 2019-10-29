@@ -1,0 +1,88 @@
+PS C:\Users\nellyson\Documents\Projects\201910Metro-OES> & C:/Users/nellyson/AppData/Local/Programs/Python/Python37-32/python.exe c:/Users/nellyson/Documents/Projects/201910Metro-OES/DataRetrieve.py
+metro data finsished
+oes/5030-22 STI INTEGRATED DRY ETCH_3.csv data finsished
+Time in seconds completed
+OES_col=['OES_BCl272', 'OES_C516', 'OES_CN387', 'OES_CO483', 'OES_F703', 'OES_H656', 'OES_O777', 'OES_OH309']
+len(UniqueNames)=112
+
+PS C:\Users\nellyson\Documents\Projects\201910Metro-OES> & C:/Users/nellyson/AppData/Local/Programs/Python/Python37-32/python.exe c:/Users/nellyson/Documents/Projects/201910Metro-OES/LotIDCompare.py
+metro\22STIINT.txt data finsished
+oes\5030-22 STI INTEGRATED DRY ETCH_2.csv data finsished
+oes\5030-22 STI INTEGRATED DRY ETCH_3.csv data finsished
+oes\5030-22 STI INTEGRATED DRY ETCH_4.csv data finsished
+(UniqueOES)=[3955743.003 3955763.003 3955753.003 3955003.003 3954993.003 3955013.003
+ 3959173.003 3969813.003 3970573.003 3970563.003 3969803.003 3973853.003
+ 3973843.003 3973973.003 3974573.003 3974583.003 3973983.003 3951133.003
+ 3951143.003 3951213.003 3951203.003 3951983.003 3951973.003 3945363.013
+ 3937593.003 3937583.003 3938223.003 3938213.003 3938363.003 3938373.003
+ 3942213.003 3942413.003 3942403.003 3942203.003 3943053.003 3943063.003
+ 3946173.003 3946463.003 3946453.003 3946163.003] 
+new=[ True False False False False  True False  True  True False False False
+ False False False False False False False False False  True  True  True
+  True  True False False False False  True False False  True False False
+  True False False  True] 
+i=[ 0  5  7  8 21 22 23 24 25 30 33 36 39]
+data.size=33262125
+
+-----------------LotIDCompare.py Including-----------------------------
+print(type(data),len(lotID),len(oesLots))
+for i,x in enumerate(lotID):
+    print(i,x,data)
+    indexNames = data[ data['LOT_ID'] == x ].index
+-----------------------------------------------------------------------
+
+PS C:\Users\nellyson\Documents\Projects\201910Metro-OES> & C:/Users/nellyson/AppData/Local/Programs/Python/Python37-32/python.exe c:/Users/nellyson/Documents/Projects/201910Metro-OES/LotIDCompare.py
+metro\22STIINT.txt data finsished
+oes\5030-22 STI INTEGRATED DRY ETCH_2.csv data finsished
+oes\5030-22 STI INTEGRATED DRY ETCH_3.csv data finsished
+oes\5030-22 STI INTEGRATED DRY ETCH_4.csv data finsished
+[3955743.003 3955763.003 3955753.003 3955003.003 3954993.003 3955013.003
+ 3959173.003 3969813.003 3970573.003 3970563.003 3969803.003 3973853.003
+ 3973843.003 3973973.003 3974573.003 3974583.003 3973983.003 3951133.003
+ 3951143.003 3951213.003 3951203.003 3951983.003 3951973.003 3945363.013
+ 3937593.003 3937583.003 3938223.003 3938213.003 3938363.003 3938373.003
+ 3942213.003 3942413.003 3942403.003 3942203.003 3943053.003 3943063.003
+ 3946173.003 3946463.003 3946453.003 3946163.003] [ True False False False False  True False  True  True False False False
+ False False False False False False False False False  True  True  True
+  True  True False False False False  True False False  True False False
+  True False False  True] [ 0  5  7  8 21 22 23 24 25 30 33 36 39]
+33262125
+<class 'pandas.core.frame.DataFrame'> 13 0
+0 3955743.003               LOT_ID WAFER_ID             RunStartTime                TimeStamp  StepID  OES_BCl272  OES_C516  OES_CN387  OES_CO483  OES_F703  OES_H656  OES_O777  OES_OH309
+0        3955743.003  5743-16  2019/08/10 09:16:27.193  2019/08/10 09:16:27.193     NaN         NaN       NaN        NaN        NaN       NaN       NaN       NaN        NaN
+1        3955743.003  5743-15  2019/08/10 09:16:27.194  2019/08/10 09:16:27.194     NaN         NaN       NaN        NaN        NaN       NaN       NaN       NaN        NaN
+2        3955743.003  5743-16  2019/08/10 09:16:27.193  2019/08/10 09:16:27.316     0.0        -1.0      -1.0       -1.0       -1.0      -1.0      -1.0      -1.0       -1.0
+3        3955743.003  5743-15  2019/08/10 09:16:27.194  2019/08/10 09:16:27.326     0.0        -1.0      -1.0       -1.0       -1.0      -1.0      -1.0      -1.0       -1.0
+4        3955743.003  5743-16  2019/08/10 09:16:27.193  2019/08/10 09:16:27.408     0.0        -1.0      -1.0       -1.0       -1.0      -1.0      -1.0      -1.0       -1.0
+...              ...      ...                      ...                      ...     ...         ...       ...        ...        ...       ...       ...       ...        ...
+2558620  3946163.003  6163-16  2019/07/27 08:46:31.972  2019/07/27 08:49:00.092     9.0        -1.0      -1.0       -1.0       -1.0      -1.0      -1.0      -1.0       -1.0
+2558621  3946163.003  6163-16  2019/07/27 08:46:31.972  2019/07/27 08:49:00.183     9.0        -1.0      -1.0       -1.0       -1.0      -1.0      -1.0      -1.0       -1.0
+2558622  3946163.003  6163-16  2019/07/27 08:46:31.972  2019/07/27 08:49:00.296     9.0        -1.0      -1.0       -1.0       -1.0      -1.0      -1.0      -1.0       -1.0
+2558623  3946163.003  6163-16  2019/07/27 08:46:31.972  2019/07/27 08:49:00.387     9.0   1021720.0      -1.0       -1.0       -1.0      -1.0      -1.0      -1.0       -1.0
+2558624  3946163.003  6163-16  2019/07/27 08:46:31.972  2019/07/27 08:49:00.498     9.0   1034440.0      -1.0       -1.0       -1.0      -1.0      -1.0      -1.0       -1.0
+
+[2558625 rows x 13 columns]
+Traceback (most recent call last):
+  File "c:/Users/nellyson/Documents/Projects/201910Metro-OES/LotIDCompare.py", line 50, in <module>
+    indexNames = data[ data['LOT_ID'] == x ].index
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\frame.py", line 2971, in __getitem__
+    return self._getitem_bool_array(key)
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\frame.py", line 3025, in _getitem_bool_array
+    return self.take(indexer, axis=0)
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\generic.py", line 3601, in take
+    self._consolidate_inplace()
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\generic.py", line 5252, in _consolidate_inplace
+    self._protect_consolidate(f)
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\generic.py", line 5241, in _protect_consolidate
+    result = f()
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\generic.py", line 5250, in f
+    self._data = self._data.consolidate()
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\internals\managers.py", line 932, in consolidate
+    bm._consolidate_inplace()
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\internals\managers.py", line 937, in _consolidate_inplace
+    self.blocks = tuple(_consolidate(self.blocks))
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\internals\managers.py", line 1913, in _consolidate
+    list(group_blocks), dtype=dtype, _can_consolidate=_can_consolidate
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\internals\blocks.py", line 3323, in _merge_blocks
+    new_values = new_values[argsort]
+MemoryError: Unable to allocate array with shape (10, 2558625) and data type float64
