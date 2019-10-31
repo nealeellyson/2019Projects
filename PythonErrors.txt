@@ -86,3 +86,40 @@ Traceback (most recent call last):
   File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\internals\blocks.py", line 3323, in _merge_blocks
     new_values = new_values[argsort]
 MemoryError: Unable to allocate array with shape (10, 2558625) and data type float64
+
+2019-10-31--------------------------------------------------------------------------
+PS C:\Users\nellyson\Documents\Projects\201910Metro-OES> & C:/Users/nellyson/AppData/Local/Programs/Python/Python37-32/python.exe c:/Users/nellyson/Documents/Projects/201910Metro-OES/LotIDCompare.py
+metro\22STIINT.txt data finsished
+oes\5030-22 STI INTEGRATED DRY ETCH_2.csv data finsished
+oes\5030-22 STI INTEGRATED DRY ETCH_3.csv data finsished
+oes\5030-22 STI INTEGRATED DRY ETCH_4.csv data finsished
+Type: <class 'numpy.ndarray'>
+Length of lotID: 13
+Length of data: 2558625
+2558625
+Traceback (most recent call last):
+  File "c:/Users/nellyson/Documents/Projects/201910Metro-OES/LotIDCompare.py", line 49, in <module>
+    another = data[something == x]
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\frame.py", line 2971, in __getitem__
+    return self._getitem_bool_array(key)
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\frame.py", line 3025, in _getitem_bool_array
+    return self.take(indexer, axis=0)
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\generic.py", line 3601, in take
+    self._consolidate_inplace()
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\generic.py", line 5252, in _consolidate_inplace
+    self._protect_consolidate(f)
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\generic.py", line 5241, in _protect_consolidate
+    result = f()
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\generic.py", line 5250, in f
+    self._data = self._data.consolidate()
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\internals\managers.py", line 932, in consolidate
+    bm._consolidate_inplace()
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\internals\managers.py", line 937, in _consolidate_inplace
+    self.blocks = tuple(_consolidate(self.blocks))
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\internals\managers.py", line 1913, in _consolidate
+    list(group_blocks), dtype=dtype, _can_consolidate=_can_consolidate
+  File "C:\Users\nellyson\AppData\Local\Programs\Python\Python37-32\lib\site-packages\pandas\core\internals\blocks.py", line 3323, in _merge_blocks
+    new_values = new_values[argsort]
+MemoryError: Unable to allocate array with shape (10, 2558625) and data type float64
+------------------------------------------------------------------------------------
+
