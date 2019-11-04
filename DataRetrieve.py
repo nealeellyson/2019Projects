@@ -23,6 +23,8 @@ import os
 import numpy as np
 from datetime import datetime,timedelta
 import time
+import matplotlib
+matplotlib.use('AGG')
 import matplotlib.pyplot as plt
 
 # Retrieving Metro Data from .txt files
