@@ -43,8 +43,7 @@ for filename in glob.glob("oes/5030-22 STI INTEGRATED DRY ETCH_3.csv"): #5030-22
     oes[filename[4:-4]] = pd.read_csv(filename, usecols=cols,parse_dates=['RunStartTime', 'TimeStamp'],infer_datetime_format=True)[cols]
     ofile.append(filename[4:-4]) # Create index of filename strings
     print(f'{filename} data finsished')
-
-data = oes[filename[4:-4]]
+    data = oes[filename[4:-4]]
 UniqueNames = data.WAFER_ID.unique()
 DataFrameDict = {elem : pd.DataFrame for elem in UniqueNames}
 t_sec = {}
