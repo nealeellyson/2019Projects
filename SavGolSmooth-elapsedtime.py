@@ -80,24 +80,34 @@ etch_time = []
 for x in range (len(UniqueWafers)): #len(UniqueWafers)): #5): #
     #fig = plt.figure()
     Tsteps = t_sec[x].loc[Wafer[x]['StepID']==step]
-    #print(Tsteps)
     x_int = np.linspace(Tsteps.iloc[0], Tsteps.iloc[-1], 100)
     #plt.axvspan(Tsteps.iloc[0], Tsteps.iloc[-1], alpha=0.25) #, ymin=0, ymax=1, **kwargs)
     plt.title(f"Wafer Scribe: {UniqueWafers[x]}, {x}/{len(UniqueWafers)}")
     for y in range(1,2): #len(OES_col)): #
+        WinLen = 11
+        POrder = 5
         Intensity = Wafer[x][OES_col[y]].loc[Wafer[x]['StepID']==step]
+        if Tsteps.values[-1] == 0.:                                 # Is the final time step zero for some weird reason? 
+            Tsteps.drop(Tsteps.tail(1).index,inplace=True)          # Let's get rid of it then, it's messing up our data
+            Intensity.drop(Intensity.tail(1).index,inplace=True)    # Keep consistent for plotting purposes
         #plt.plot(Tsteps,Intensity, label=f"{OES_col[y]}") #,color="tab:orange")                    # OG Data
-        SGsmooth = savgol_filter(Intensity,window_length=11, polyorder = 5, deriv = 0)  #
-        plt.plot(Tsteps,SGsmooth, label=f"Smooth {OES_col[y]}")#,color="tab:blue")                      # Smoothed Data
-        first = savgol_filter(Intensity,window_length=11, polyorder = 5, deriv = 1)
+        SGsmooth = savgol_filter(Intensity,window_length=WinLen, polyorder = POrder, deriv = 0)  #
+        plt.plot(Tsteps,SGsmooth, label=f"{UniqueWafers[x]}")#,color="tab:blue")                      # Smoothed Data     f"Smooth {OES_col[y]}"
+        first = savgol_filter(Intensity,window_length=WinLen, polyorder = POrder, deriv = 1)
         #plt.plot(Tsteps,first, label=f"1st {OES_col[y]}",linestyle = '--',color="tab:red")          # First Derivative Plot
-        second = savgol_filter(Intensity,window_length=11, polyorder = 5, deriv = 2)
+        second = savgol_filter(Intensity,window_length=WinLen, polyorder = POrder, deriv = 2)
         #plt.plot(Tsteps,second, label=f"2nd {OES_col[y]}",linestyle = ':',color="tab:green")        # Second Derivative Plot
         
         peaks, _ = find_peaks(second, height=5e2) #, distance=150)
+        print(Tsteps.values[peaks])
+        print(type(Tsteps.values[peaks]))
+        print(Tsteps.values[peaks]>4)
+        print(type(Tsteps.values[peaks]>4))
+        print(peaks(Tsteps.values[peaks]>4))
+        #peaks = peaks[Tsteps.values[peaks]>4]
         #plt.plot(Tsteps[peaks], first[peaks], "x",color="tab:purple", label = "Peaks")              # First Derivative Peaks
         #plt.plot(Tsteps[peaks], second[peaks], "x",color="tab:purple", label = "Peaks")             # Second Derivative Peaks
-        #plt.plot(Tsteps.values[peaks], SGsmooth[peaks], "x",color="tab:purple") #, label = "Peaks")              # Smoothed Peaks
+        plt.plot(Tsteps.values[peaks], SGsmooth[peaks], "x",color="tab:purple") #, label = "Peaks")              # Smoothed Peaks
 
 #       print("Tsteps[peaks]:",Tsteps.values[peaks])
 #       print("Tsteps[peaks]-Tsteps[0]:",Tsteps.values[peaks]-Tsteps.values[0])
